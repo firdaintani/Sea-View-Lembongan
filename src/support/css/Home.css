@@ -1,0 +1,38 @@
+.descriptionHome {
+    width: 60%;
+    margin-top: 50px;
+    
+}
+
+.brandName{
+    font-size: 24px;
+}
+
+.description{
+    font-size: 16px
+}
+
+.spaceSubMenu{
+    margin-top: 50px;
+}
+
+.title{
+    font-size: 20px !important;
+}
+
+.columnContact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 30px 0px 30px;
+    height: 190px;
+    
+    flex-direction: column;
+    border: 1px solid lightgrey;
+    transition:ease 1s;
+}
+
+.columnContact:hover{
+    transform: translateY(-15px);
+
+}

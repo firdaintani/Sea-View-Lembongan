@@ -1,0 +1,21 @@
+.slick-list {margin: 0 -20px;}
+.slick-slide>div {padding: 0 20px;}
+.slides {
+    position: relative;
+   
+  }
+  .slides .slick-prev,
+  .slides .slick-next {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+  }
+
+  .sliderRoomPicture{
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .card{
+      border:none !important;
+  }

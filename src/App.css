@@ -8,6 +8,15 @@
   pointer-events: none;
 }
 
+.backgroundHome {
+
+ /* background-image: url(./support/img/carousel1.JPG); */
+ 
+ background-size: cover;
+ background-attachment: fixed;
+
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
