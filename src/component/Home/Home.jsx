@@ -7,7 +7,7 @@ import { FaPhone, FaMapMarkedAlt, FaMailBulk } from 'react-icons/fa'
 class Homedesc extends React.Component {
     render() {
         return (
-            <div className="container">
+            <div className="container" >
                 <Carousel />
                 <center>
                     <div className='descriptionHome'>
