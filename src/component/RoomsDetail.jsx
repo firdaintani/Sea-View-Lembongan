@@ -3,6 +3,7 @@ import family from './RoomsPicture/family'
 import superior from './RoomsPicture/superior'
 import hostel from './RoomsPicture/hostel'
 // import familyroom from './RoomsPicture/family'
+import '../support/css/RoomsDetail.css'
 import {
     Carousel,
     CarouselItem,
@@ -20,22 +21,32 @@ class RoomDetails extends React.Component {
             {
                 name: 'Family Room with Sea View',
                 desc: 'Family Room with Sea View features one queen bed or two twin beds, safety box, flat screen TV, DVD player, en-suite bathroom with shower and toilet, soap and shampoo, bath towel, terrace with sea view. Room size is 32 Sqm and located on the ground floor with the stair access to the rooms.',
-                amenities: ['Free daily bottled water', 'One queen bed and two twin beds', 'Minibar refrigerator', 'In room safety box', 'En-suite bathroom with shower and toilet in each room', 'Bath towel', 'Terrace with sea and pool views', ' Flat screen TV in each room', 'DVD player', 'Wardrobe', 'Ironing facilities', 'Sofa', 'Desk']
+                amenities1: ['Free daily bottled water', 'One queen bed and two twin beds', 'Minibar refrigerator', 'In room safety box', 'En-suite bathroom with shower and toilet in each room'  ],
+                amenities2:['Bath towel', 'Terrace with sea and pool views', ' Flat screen TV in each room', 'DVD player'],
+                amenities3:['Wardrobe', 'Ironing facilities', 'Sofa', 'Desk']
             },
             {
                 name: 'Bunk Bed in 6-Bed Mixed Dormitory',
                 desc: 'Bunk Bed in 6-Bed Mixed Dormitory features single bed (twin size bed) on bunk beds, shared bathroom with shower and toilet, soap, bath towel, shared common area. Room size is 40 Sqm and located on the ground floor.',
-                amenities: ['single bed (twin size bed) on the bunk bed', 'Shared bathroom with shower and toilet', 'Bath towel', 'Shared common area', 'Wardrobe']
+                amenities1: ['single bed (twin size bed) on the bunk bed', 'Shared bathroom with shower and toilet'],
+                amenities2:[ 'Bath towel', 'Shared common area'],
+                amenities3:[ 'Wardrobe']
             },
             {
                 name: 'Superior Room with Sea View',
                 desc: 'Superior Room with Sea View features one queen bed or two twin beds, en-suite bathroom with shower and toilet, soap and shampoo, bath towel, balcony with sea view. Room size is 24 Sqm and located on the upper floor with the stair access.',
-                amenities: ['Free daily bottled water', 'One queen bed and two twin beds', 'Minibar refrigerator', 'In room safety box', 'En-suite bathroom with shower and toilet', 'Bath towel', "Balcony with sea view", ' Flat screen TV', 'DVD player', 'Wardrobe', 'Ironing facilities', 'Sofa', 'Desk']
+                amenities1: ['Free daily bottled water', 'One queen bed and two twin beds', 'Minibar refrigerator', 'In room safety box', 'En-suite bathroom with shower and toilet'],
+                amenities2 :[ 'Bath towel', "Balcony with sea view", ' Flat screen TV', 'DVD player'],
+                amenities3:['Wardrobe', 'Ironing facilities', 'Sofa', 'Desk']
             },
             {
                 name: 'Deluxe Room with Sea View',
                 desc: 'Deluxe Room with Sea View features one queen bed or two twin beds, safety box, flat screen TV, DVD player, en-suite bathroom with shower and toilet, soap and shampoo, bath towel, terrace with sea view. Room size is 24 Sqm and located on the ground floor',
-                amenities: ['Free daily bottled water', 'One queen bed and two twin beds', 'Minibar refrigerator', 'In room safety box', 'En-suite bathroom with shower and toilet', 'Bath towel', "Terrace with sea view", ' Flat screen TV', 'DVD player', 'Wardrobe', 'Ironing facilities', 'Sofa', 'Desk']
+                amenities1: ['Free daily bottled water', 'One queen bed and two twin beds', 'Minibar refrigerator', 'In room safety box', 'En-suite bathroom with shower and toilet'],
+                amenities2 : ['Bath towel', "Terrace with sea view", ' Flat screen TV', 'DVD player',
+                ], amenities3 :[
+                    'Wardrobe', 'Ironing facilities', 'Sofa', 'Desk'
+                ]
             }
         ]
     }
@@ -106,7 +117,7 @@ class RoomDetails extends React.Component {
                             <center>
                                 <div className='title mt-5'> {this.state.rooms[this.state.roomtypes].name}</div>
                                 <hr style={{ width: '5%', borderTop: '2px black solid' }}></hr>
-                            </center>
+                            
                             <Carousel
                                 activeIndex={activeIndex}
                                 next={this.next}
@@ -117,7 +128,46 @@ class RoomDetails extends React.Component {
                                 <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
                                 <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                             </Carousel>
-                        
+                            <div className='mt-5'>
+                            <div className='title'>Room Details</div>
+                            <hr style={{ width: '5%', borderTop: '2px black solid' }}></hr>
+                            <p className='mt-5'>{this.state.rooms[this.state.roomtypes].desc}</p>
+
+                            </div>
+                            </center>
+                            <div className='mt-5'>
+                            <div className='title' style={{textAlign:'center'}}>Amenities</div>
+                            
+                            <hr style={{ width: '5%', borderTop: '2px black solid' }}></hr>
+                            
+                            <div className="row">
+                                
+                                <div className="col-md-4">
+                                    {
+                                        this.state.rooms[this.state.roomtypes].amenities1.map((val)=>{
+                                            return <div>{val}</div>
+                                        })
+                                    }
+                                </div>
+                                <div className="col-md-4" style={{borderLeft:'0.5px solid lightgrey'}}>
+                                {
+                                        this.state.rooms[this.state.roomtypes].amenities2.map((val)=>{
+                                            return <div>{val}</div>
+                                        })
+                                    }
+                                    </div>
+                                    <div className="col-md-4" style={{borderLeft:'0.5px solid lightgrey'}}>
+                                    {
+                                        this.state.rooms[this.state.roomtypes].amenities3.map((val)=>{
+                                            return <div>{val}</div>
+                                        })
+                                    }
+                                    </div>
+                            </div>
+
+                            </div>
+                            
+                            
                         </div>
                         :
                         <div>

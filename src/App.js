@@ -9,6 +9,7 @@ import {changeMenu} from './1.action'
 import {connect} from 'react-redux'
 import scrollToTop from './component/scrollToTop';
 import RoomDetails from './component/RoomsDetail';
+import { Footer } from './component/Footer';
 class App extends React.Component {
   componentDidMount=()=>{
     var stringPath = window.location.pathname.slice(1, window.location.pathname.length);
@@ -26,6 +27,7 @@ class App extends React.Component {
           <Route path='/rooms' component={Rooms}  exact/>
           <Route path='/rooms/:roomtype' component={RoomDetails}  />
         </scrollToTop>
+        <Footer/>
       
         {/* </div> */}
         
