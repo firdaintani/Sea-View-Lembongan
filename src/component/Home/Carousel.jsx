@@ -6,10 +6,15 @@ import {
   
 } from 'reactstrap';
 import '../../support/css/Carousel.css'
-import picture1 from '../../support/img/carousel1.JPG'
+import family from '../../support/img/room/family/family1.JPG'
+import hostel from '../../support/img/room/hostel/hostel1.png'
+import superior from '../../support/img/room/superior/superior1.jpg'
+import spa from '../../support/img/spa_restaurant/Spa 2.png'
+import restaurant from '../../support/img/room/family/family1.JPG'
+
 const items = [
   {
-    src: `${picture1}`,
+    src: `${family}`,
     altText: 'Slide 1',
     caption: 'Slide 1'
   },

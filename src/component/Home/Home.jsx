@@ -13,11 +13,14 @@ class Homedesc extends React.Component {
                     <div className='descriptionHome'>
                         <p className='brandName'>SEA VIEW LEMBONGAN</p>
                         <hr style={{ width: '25%', borderTop: '2px black solid' }}></hr>
-                        <p className='description'>Situated in Lembongan in the Bali Region, 1 km from Mushroom Bay, Sea View Lembongan features an outdoor pool and views of the garden. </p>
-                        <p>The Sandy Beach Club is 1.5 km away. Free WiFi is available throughout the property.
-                        All units include a seating area. A minibar and kettle are also offered. There is a private bathroom with a shower and free toiletries in each unit. Bed linen is featured. </p>
-                        <p> Guests can enjoy a drink at the on-site bar. </p>
-                        <p> Bike hire is available at the property and the area is popular for snorkelling and diving. The area is popular for fishing and canoeing. Blue Corner is 2.1 km from Darsan Lembongan Boutique Cottage. The nearest airport is Ngurah Rai International Airport, 31 km from the property.
+                        <p className='description'>Sea View Lembongan Cottage and Hostels boast sea view outdoor swimming pool, rooms, and restaurant. Featuring on-site spa with beds and choices of massages. </p>
+                        <p>Nusa Penida Island and Nusa Ceningan Island views are visible from the swimming pool and most of the rooms. Sea View Lembongan is situated 1.8km from Yellow Bridge Ceningan, 1.5km from Mushroom Bay, 1.8km from Devil's Tears Bay, and 2.0km from Jungut Batu Harbor
+ </p>
+                        <p> Two Brothers Restaurant on site provides choices of foods and beverages from local Balinese cuisine to western ones. With the garden, sea view, and breezy ambiance, the Two Brothers Restaurant serves breakfast, lunch, and dinner.
+
+</p>
+                        <p> Speedboat and transportation reservation are provided with additional charge. Snorkeling, Diving, Scooter rental, village tour, and many more activities can be booked at the reception desk.
+
 </p>
                     </div>
 
@@ -55,11 +58,11 @@ class Homedesc extends React.Component {
                                 <hr style={{ width: '10%', borderTop: '2px black solid' }}></hr>
                             </div>
                             <div className="col-md-3 columnContact">
-                                <FaMapMarkedAlt size={20}/>
+                                <FaMapMarkedAlt size={20} />
                                 <hr style={{ width: '10%', borderTop: '2px black solid' }}></hr>
                             </div>
                             <div className="col-md-3 columnContact">
-                                <FaMailBulk size={20}/>
+                                <FaMailBulk size={20} />
                                 <hr style={{ width: '10%', borderTop: '2px black solid' }}></hr>
                             </div>
 

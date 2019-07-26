@@ -9,7 +9,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,  Modal, ModalHeader, ModalBody, ModalFooter
+  NavLink,  Modal, ModalHeader, ModalBody
 } from 'reactstrap';
 import {changeMenu} from './../1.action'
 
@@ -28,6 +28,7 @@ class NavbarMenu extends React.Component {
       showMenu: false,
       mediaQuery : null,
       modal: false,
+      menuSelected : '',
       optionMenu: [{menu : 'Home', route:'/'},{menu : 'Rooms', route:'/rooms'},{menu : 'Photos', route:'/photos'},{menu : 'Restaurant & Spa', route:'/restaurantspa'},{menu : 'Contact', route:'/contact'},{menu : 'Reviews', route:'/reviews'}]
 
     };
@@ -48,28 +49,32 @@ class NavbarMenu extends React.Component {
     const currentScrollPos = window.pageYOffset;
 
     if (currentScrollPos > 57 && this.state.mediaQuery) {
-    
+      // alert('ada')
       this.setState({ visible: true })
     } else {
       this.setState({ visible: false })
     }
   }
-
   getMediaQuery=()=>{
+    var x = window.matchMedia("(max-width:960px)")
+    if(x.matches){
+      this.setState({mediaQuery:false})
+    }else{this.setState({mediaQuery:true})}
+  }
+
+
+  mediaQueryonResize=()=>{
   
     var x = window.matchMedia("(max-width:960px)")
     if(x.matches){
-      
-        this.setState({mediaQuery:false, visible:false})
-
-     
+        this.setState({mediaQuery:false, visible:false})  
     }else{
       if(window.pageYOffset<57){
-       
+       // alert('ada trus sejajar scroll')
         this.setState({mediaQuery:true, visible:false})
 
       }else {
-       
+      //  alert('ada trus dibawah scroll')
         this.setState({mediaQuery:true, visible:true})
 
       }
@@ -80,20 +85,31 @@ class NavbarMenu extends React.Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
-    window.addEventListener("resize", this.getMediaQuery);
+    window.addEventListener("resize", this.mediaQueryonResize);
+    this.getMediaQuery()
+
   
+  }
+
+  componentWillReceiveProps=(newProps)=>{
+    this.setState({menuSelected : newProps.menuSelected})
   }
 
   
   // Remove the event listener when the component is unmount.
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
-    window.removeEventListener("resize", this.getMediaQuery);
+    window.removeEventListener("resize", this.mediaQueryonResize);
+  }
+
+  closemodal=(menu)=>{
+    this.toggles()
+    this.props.changeMenu(menu)
   }
 
   renderOptionMenu = () => {
     var menu = this.state.optionMenu.map((val) => {
-      if (this.props.menuSelected === val.menu) {
+      if (this.props.menuSelected === val.route) {
         return (
 
           <div className='options'>
@@ -110,7 +126,7 @@ class NavbarMenu extends React.Component {
       return (
 
         <div className='options'>
-          <Link to={val.route} onClick={()=>this.props.changeMenu(val.menu)} className='optionMenu'><div >{val.menu}</div></Link>
+          <Link to={val.route} onClick={()=>this.closemodal(val.route)} className='optionMenu'><div >{val.menu}</div></Link>
           <div className='leftBracket'>[</div>
 
           <div className='rightBracket'>]</div>
@@ -125,7 +141,7 @@ class NavbarMenu extends React.Component {
   renderNavbarMenu = () => {
     var menuNavbar = this.state.optionMenu.slice(1, this.state.optionMenu.length)
     var navbarMenus = menuNavbar.map((val) => {
-      if (this.props.menuSelected === val.menu) {
+      if (this.props.menuSelected === val.route) {
         return (
 
           <div className='optionsNavbarMenu'>
@@ -139,7 +155,7 @@ class NavbarMenu extends React.Component {
       return (
         <NavItem className='px-3'>
           <div className='optionsNavbarMenu'>
-         <Link to={val.route} onClick={()=>this.props.changeMenu(val.menu)} className='optionMenu'> <div>{val.menu}</div></Link>
+         <Link to={val.route} onClick={()=>this.props.changeMenu(val.route)} className='optionMenu'> <div>{val.menu}</div></Link>
           <div className='leftBracket'>[</div>
 
           <div className='rightBracket'>]</div>

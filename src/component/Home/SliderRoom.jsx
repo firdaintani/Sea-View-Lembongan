@@ -7,14 +7,17 @@ import {
     CardTitle
 } from 'reactstrap';
 import '../../support/css/SliderRoom.css'
-import FamilyRoom from '../../support/img/room/family/7.jpeg'
+import FamilyRoom from '../../support/img/room/family/family1.JPG'
+import BunkBed from '../../support/img/room/hostel/hostel1.png'
+import SuperiorRoom from '../../support/img/room/superior/superior1.jpg'
+
 class SliderRoom extends React.Component {
     state = {
         room: [
-            { name: 'Family Room', picture: FamilyRoom },
-            { name: 'Deluxe', picture: '' },
-            { name: 'Superior', picture: '' },
-            { name: 'Hostel (Bunk Bed)', picture: '' },
+            { name: 'Family Two-Bedroom with Sea View', picture: FamilyRoom },
+            { name: 'Deluxe Room with Sea View', picture: '' },
+            { name: 'Superior Room with Sea View', picture: SuperiorRoom },
+            { name: 'Bunk Bed in 6-bed Mixed Dormitory', picture: BunkBed },
 
         ]
     }
@@ -36,24 +39,49 @@ class SliderRoom extends React.Component {
         return room
     }
     render() {
-      
+
         const settings = {
             className: "center slides",
-            autoplay: true,
-            speed: 5000,
-            autoplaySpeed: 5000,
-            cssEase: "linear",
+            dots: true,
             infinite: true,
-            centerPadding: "60px",
+            speed: 500,
             slidesToShow: 3,
-            
+            slidesToScroll: 3,
+            initialSlide: 0,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 900,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        initialSlide: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+
         };
 
 
 
         return (
             <div>
-               
+
                 <Slider {...settings}>
                     {this.renderRoom()}
                 </Slider>
