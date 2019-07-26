@@ -9,7 +9,7 @@ import '../../support/css/Carousel.css'
 import family from '../../support/img/room/family/family1.JPG'
 import hostel from '../../support/img/room/hostel/hostel1.png'
 import superior from '../../support/img/room/superior/superior1.jpg'
-import spa from '../../support/img/spa_restaurant/Spa 2.png'
+import spa from '../../support/img/spa_restaurant/spa2.png'
 import restaurant from '../../support/img/room/family/family1.JPG'
 
 const items = [
