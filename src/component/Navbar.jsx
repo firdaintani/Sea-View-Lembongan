@@ -29,7 +29,7 @@ class NavbarMenu extends React.Component {
       mediaQuery : null,
       modal: false,
       menuSelected : '',
-      optionMenu: [{menu : 'Home', route:'/'},{menu : 'Rooms', route:'/rooms'},{menu : 'Photos', route:'/photos'},{menu : 'Restaurant & Spa', route:'/restaurantspa'},{menu : 'Contact', route:'/contact'},{menu : 'Reviews', route:'/reviews'}]
+      optionMenu: [{menu : 'Home', route:'/'},{menu : 'Rooms', route:'/rooms'},{menu : 'Photos', route:'/photos'},{menu : 'Restaurant & Spa', route:'/restaurant-spa'},{menu : 'Contact', route:'/contact'},{menu : 'Reviews', route:'/reviews'}]
 
     };
   }

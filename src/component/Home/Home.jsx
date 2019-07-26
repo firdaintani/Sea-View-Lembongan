@@ -3,6 +3,7 @@ import Carousel from './Carousel'
 import '../../support/css/Home.css'
 import SliderRoom from './SliderRoom'
 import Maps from './Maps'
+import {Link} from 'react-router-dom'
 class Homedesc extends React.Component {
     render() {
         return (
@@ -26,26 +27,26 @@ class Homedesc extends React.Component {
                     <div className="amenitiesHome spaceSubMenu">
                         <p className='title'>Amenities</p>
                         <hr style={{ width: '5%', borderTop: '2px black solid' }}></hr>
-                        <p>VIEW ALL</p>
+                        <Link to='/amenities'><p>VIEW ALL</p></Link>
 
                     </div>
                     <div className="roomHome spaceSubMenu">
                         <p className='title'>Rooms</p>
                         <hr style={{ width: '5%', borderTop: '2px black solid' }}></hr>
-                        <p>VIEW ALL</p>
+                        <Link to='/rooms'><p>VIEW ALL</p></Link>
                         <SliderRoom />
                     </div>
                     <div className='spaceSubMenu'>
                         <p className='title'>Restaurant & Spa</p>
                         <hr style={{ width: '5%', borderTop: '2px black solid' }}></hr>
-                        <p>VIEW ALL</p>
+                        <Link to='/restaurant-spa'><p>VIEW ALL</p></Link>
                         <Maps />
                         <p className="title" style={{ marginTop: '540px' }}> Sea View Lembongan</p>
                     </div>
                     <div>
                         <p className='title'>Reviews</p>
                         <hr style={{ width: '5%', borderTop: '2px black solid' }}></hr>
-                        <p>VIEW ALL</p>
+                        <Link to='/reviews'><p>VIEW ALL</p></Link>
                     </div>
                 </center>
             </div>

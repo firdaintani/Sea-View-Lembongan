@@ -1,0 +1,10 @@
+.form-input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px lightgrey solid;
+
+}
+
+.form-input:focus{
+    outline: none;
+}

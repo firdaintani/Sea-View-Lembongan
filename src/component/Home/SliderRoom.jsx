@@ -10,14 +10,15 @@ import '../../support/css/SliderRoom.css'
 import FamilyRoom from '../../support/img/room/family/family1.JPG'
 import BunkBed from '../../support/img/room/hostel/hostel1.png'
 import SuperiorRoom from '../../support/img/room/superior/superior1.jpg'
+import {Link} from 'react-router-dom'
 
 class SliderRoom extends React.Component {
     state = {
         room: [
-            { name: 'Family Two-Bedroom with Sea View', picture: FamilyRoom },
-            { name: 'Deluxe Room with Sea View', picture: '' },
-            { name: 'Superior Room with Sea View', picture: SuperiorRoom },
-            { name: 'Bunk Bed in 6-bed Mixed Dormitory', picture: BunkBed },
+            { name: 'Family Two-Bedroom with Sea View', picture: FamilyRoom, route:'family-room' },
+            { name: 'Deluxe Room with Sea View', picture: '' ,route:'deluxe-room'},
+            { name: 'Superior Room with Sea View', picture: SuperiorRoom ,route:'superior-room'},
+            { name: 'Bunk Bed in 6-bed Mixed Dormitory', picture: BunkBed ,route:'bunk-bed'},
 
         ]
     }
@@ -26,6 +27,7 @@ class SliderRoom extends React.Component {
         var room = this.state.room.map((val) => {
             return (
                 <div>
+                    <Link to={`/rooms/${val.route}`}>
                     <Card className="card">
                         <CardImg top width="100%" src={val.picture} className='sliderRoomPicture' alt="Card image cap" />
                         <CardBody>
@@ -33,6 +35,7 @@ class SliderRoom extends React.Component {
 
                         </CardBody>
                     </Card>
+                    </Link>
                 </div>
             )
         })
