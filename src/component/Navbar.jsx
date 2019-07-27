@@ -49,7 +49,7 @@ class NavbarMenu extends React.Component {
     const currentScrollPos = window.pageYOffset;
 
     if (currentScrollPos > 57 && this.state.mediaQuery) {
-      // alert('ada')
+ 
       this.setState({ visible: true })
     } else {
       this.setState({ visible: false })
@@ -70,13 +70,11 @@ class NavbarMenu extends React.Component {
         this.setState({mediaQuery:false, visible:false})  
     }else{
       if(window.pageYOffset<57){
-       // alert('ada trus sejajar scroll')
+     
         this.setState({mediaQuery:true, visible:false})
 
       }else {
-      //  alert('ada trus dibawah scroll')
         this.setState({mediaQuery:true, visible:true})
-
       }
   
      

@@ -40,7 +40,7 @@ class Homedesc extends React.Component {
                         <p className='title'>Restaurant & Spa</p>
                         <hr style={{ width: '5%', borderTop: '2px black solid' }}></hr>
                         <Link to='/restaurant-spa'><p>VIEW ALL</p></Link>
-                        <Maps />
+                        <Maps components={'home'}/>
                         <p className="title" style={{ marginTop: '540px' }}> Sea View Lembongan</p>
                     </div>
                     <div>

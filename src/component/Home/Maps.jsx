@@ -1,10 +1,11 @@
 import React from 'react'
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react'
 
-const mapStyles = {
-    width: '1200px',
-    height: '500px'
-}
+// const mapStyles = this.props.components==='home'? {
+//     width: '1200px',
+//     height: '500px'
+// } : {width: '300px',
+// height: '300px'}
 
 export class MapContainer extends React.Component {
    
@@ -26,7 +27,11 @@ export class MapContainer extends React.Component {
                 <Map
                     google={this.props.google}
                     zoom={16}
-                    style={mapStyles}
+                    style={this.props.components==='home'? {
+                        width: '1200px',
+                        height: '500px'
+                    } : {width: '350px',
+                    height: '350px'}}
                     initialCenter={{
                         lat: -8.693754,
                         lng: 115.439387
