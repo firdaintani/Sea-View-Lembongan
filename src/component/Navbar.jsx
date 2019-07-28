@@ -1,7 +1,7 @@
 import React from 'react';
 import '../support/css/Navbar.css'
 import { connect } from 'react-redux'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -9,9 +9,9 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,  Modal, ModalHeader, ModalBody
+  NavLink, Modal, ModalHeader, ModalBody
 } from 'reactstrap';
-import {changeMenu} from './../1.action'
+import { changeMenu } from './../1.action'
 
 
 class NavbarMenu extends React.Component {
@@ -26,10 +26,10 @@ class NavbarMenu extends React.Component {
       prevScrollpos: window.pageYOffset,
       visible: false,
       showMenu: false,
-      mediaQuery : null,
+      mediaQuery: null,
       modal: false,
-      menuSelected : '',
-      optionMenu: [{menu : 'Home', route:'/'},{menu : 'Rooms', route:'/rooms'},{menu : 'Photos', route:'/photos'},{menu : 'Restaurant & Spa', route:'/restaurant-spa'},{menu : 'Contact', route:'/contact'},{menu : 'Reviews', route:'/reviews'}]
+      menuSelected: '',
+      optionMenu: [{ menu: 'Home', route: '/' }, { menu: 'Rooms', route: '/rooms' }, { menu: 'Photos', route: '/photos' }, { menu: 'Restaurant & Spa', route: '/restaurant-spa' }, { menu: 'Contact', route: '/contact' }, { menu: 'Reviews', route: '/reviews' }]
 
     };
   }
@@ -45,39 +45,39 @@ class NavbarMenu extends React.Component {
   }
 
   handleScroll = () => {
-    
+
     const currentScrollPos = window.pageYOffset;
 
     if (currentScrollPos > 57 && this.state.mediaQuery) {
- 
+
       this.setState({ visible: true })
     } else {
       this.setState({ visible: false })
     }
   }
-  getMediaQuery=()=>{
+  getMediaQuery = () => {
     var x = window.matchMedia("(max-width:960px)")
-    if(x.matches){
-      this.setState({mediaQuery:false})
-    }else{this.setState({mediaQuery:true})}
+    if (x.matches) {
+      this.setState({ mediaQuery: false })
+    } else { this.setState({ mediaQuery: true }) }
   }
 
 
-  mediaQueryonResize=()=>{
-  
-    var x = window.matchMedia("(max-width:960px)")
-    if(x.matches){
-        this.setState({mediaQuery:false, visible:false})  
-    }else{
-      if(window.pageYOffset<57){
-     
-        this.setState({mediaQuery:true, visible:false})
+  mediaQueryonResize = () => {
 
-      }else {
-        this.setState({mediaQuery:true, visible:true})
+    var x = window.matchMedia("(max-width:960px)")
+    if (x.matches) {
+      this.setState({ mediaQuery: false, visible: false })
+    } else {
+      if (window.pageYOffset < 57) {
+
+        this.setState({ mediaQuery: true, visible: false })
+
+      } else {
+        this.setState({ mediaQuery: true, visible: true })
       }
-  
-     
+
+
     }
   }
 
@@ -86,21 +86,21 @@ class NavbarMenu extends React.Component {
     window.addEventListener("resize", this.mediaQueryonResize);
     this.getMediaQuery()
 
-  
+
   }
 
-  componentWillReceiveProps=(newProps)=>{
-    this.setState({menuSelected : newProps.menuSelected})
+  componentWillReceiveProps = (newProps) => {
+    this.setState({ menuSelected: newProps.menuSelected })
   }
 
-  
+
   // Remove the event listener when the component is unmount.
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("resize", this.mediaQueryonResize);
   }
 
-  closemodal=(menu)=>{
+  closemodal = (menu) => {
     this.toggles()
     this.props.changeMenu(menu)
   }
@@ -124,7 +124,7 @@ class NavbarMenu extends React.Component {
       return (
 
         <div className='options'>
-          <Link to={val.route} onClick={()=>this.closemodal(val.route)} className='optionMenu'><div >{val.menu}</div></Link>
+          <Link to={val.route} onClick={() => this.closemodal(val.route)} className='optionMenu'><div >{val.menu}</div></Link>
           <div className='leftBracket'>[</div>
 
           <div className='rightBracket'>]</div>
@@ -153,11 +153,11 @@ class NavbarMenu extends React.Component {
       return (
         <NavItem className='px-3'>
           <div className='optionsNavbarMenu'>
-         <Link to={val.route} onClick={()=>this.props.changeMenu(val.route)} className='optionMenu'> <div>{val.menu}</div></Link>
-          <div className='leftBracket'>[</div>
+            <Link to={val.route} onClick={() => this.props.changeMenu(val.route)} className='optionMenu'> <div>{val.menu}</div></Link>
+            <div className='leftBracket'>[</div>
 
-          <div className='rightBracket'>]</div>
-        </div>
+            <div className='rightBracket'>]</div>
+          </div>
         </NavItem>
       )
     })
@@ -168,21 +168,39 @@ class NavbarMenu extends React.Component {
       <div>
         <Navbar expand="lg" className="navbar" >
           <NavbarBrand href="/" className='navbar-brand'>Sea View Lembongan</NavbarBrand>
-          <div className='navbar-toggler'><NavbarToggler tag='button' onClick={this.toggles}>Menu</NavbarToggler></div>
+          <div className='navbar-toggler'>
+            <NavbarToggler tag='button' onClick={this.toggles}>Menu</NavbarToggler></div>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto navbarMenu" navbar>
-             
-              {this.renderNavbarMenu()}
+            <div className='d-flex flex-column flex-wrap' style={{width:'100%'}}>
+              <Nav className="ml-auto navbarMenu" navbar>
+                <NavItem>
+                  <NavLink><p>+82639823729</p></NavLink>
 
-            </Nav>
+                </NavItem>
+                <NavItem>
+                  <NavLink>
+                    <p>seaview@lembongan.com</p>
+                  </NavLink>
+                </NavItem>
+
+              </Nav>
+
+
+              <Nav className="ml-auto navbarMenu" navbar>
+
+                {this.renderNavbarMenu()}
+
+
+              </Nav>
+            </div>
+
           </Collapse>
         </Navbar>
 
         <Navbar light className={`navbar-expand ${this.state.visible ? 'navbar-second' : 'hide-menu'}`} >
-          <NavbarBrand href="/">Sea View Lembongan</NavbarBrand>
+          <NavbarBrand href="/" className='navbar2-brand'>Sea View Lembongan</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar >
-          
             <Nav className="ml-auto">
               <NavItem>
                 <NavLink onClick={() => this.setState({ modal: true })} style={{ cursor: 'pointer' }}>Menu</NavLink>
@@ -230,4 +248,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {changeMenu})(NavbarMenu);
+export default connect(mapStateToProps, { changeMenu })(NavbarMenu);

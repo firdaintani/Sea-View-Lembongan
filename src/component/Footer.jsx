@@ -4,7 +4,7 @@ import { FaPhone, FaMapMarkedAlt, FaMailBulk } from 'react-icons/fa'
 export class Footer extends React.Component{
     render(){
         return(
-            <div className='mt-5'>
+            <div className='mt-5 container'>
             <p className='title'>Sea View Lembongan</p>
             <hr style={{ width: '5%', borderTop: '2px black solid' }}></hr>
             <div className="row justify-content-center mt-4">

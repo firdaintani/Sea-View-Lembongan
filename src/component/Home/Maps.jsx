@@ -21,7 +21,6 @@ export class MapContainer extends React.Component {
         return (
             <div>
 
-                {/* <a href='https://www.google.com/maps?q=-8.693754, 115.439387' style={{display:'none'}} target="_blank" ref="linkMaps">aaaa</a> */}
                 <a href='https://www.google.com/maps/place/Lembongan+seaview/@-8.6935367,115.4371663,17z/data=!4m8!3m7!1s0x2dd26db86b6b77a5:0x29cbfd955d5709e!5m2!4m1!1i2!8m2!3d-8.6938704!4d115.4394084' style={{ display: 'none' }} target="_blank" ref="linkMaps"></a>
 
                 <Map

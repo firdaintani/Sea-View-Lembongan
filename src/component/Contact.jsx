@@ -9,7 +9,7 @@ class Contact extends React.Component {
                 <p className='title mt-4 mb-3'>Contact</p>
                 <hr style={{ width: '5%', borderTop: '2px black solid' }}></hr>
 
-                <div className="row mt-4">
+                <div className="row mt-4 contact-row-top ml-3">
                     <div className="col-lg-4">
                         <div className="row">
                             <p>+63283298362</p>

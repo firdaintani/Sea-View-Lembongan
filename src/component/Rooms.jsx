@@ -43,7 +43,7 @@ class Rooms extends React.Component {
     }
     render() {
         return (
-            <div>
+            // <div>
                 <div className="container">
                     <center>
                         <p className='title mt-4 mb-4'>Rooms</p>
@@ -53,7 +53,7 @@ class Rooms extends React.Component {
                         </div>
                     </center>
                 </div>
-            </div>
+            // </div>
         )
     }
 }

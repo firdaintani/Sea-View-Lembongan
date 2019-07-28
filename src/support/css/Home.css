@@ -37,3 +37,10 @@
     transform: translateY(-15px);
 
 }
+
+.backgroundHome{
+    background-color: #f5c7b8ff;
+}
+.backgroundHome > .container{
+    background-color: white;
+}
